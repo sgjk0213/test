@@ -1,0 +1,56 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <time.h> 
+int main()
+{ 
+  int computerBall[3]; 
+  int i, j; 
+int temp; 
+int userBall[3]; 
+  int count = 1; 
+  int strike; 
+  int ball; 
+
+  
+  printf("숫자야구의 정답을 입력하세요 : ");
+  scanf("%d %d %d",&computerBall[0],&computerBall[1],&computerBall[2]);
+  printf("\n");
+  
+  
+ 
+  while (1) 
+  { 
+      printf("[%d회차]\n", count); 
+while(1) 
+{ 
+printf("0부터 9까지 숫자를 3개 입력 : "); 
+scanf("%d %d %d", &userBall[0], &userBall[1], &userBall[2]); 
+
+break;  
+} 
+      ball = 0; 
+      strike = 0; 
+      for (i = 0; i < 3; i++) 
+          for (j = 0; j < 3; j++) 
+              if (computerBall[i] == userBall[j]) 
+                  if (i == j) 
+                      strike++; 
+                  else 
+                      ball++; 
+
+      printf("[결과]스트라이크 : %d, 볼 : %d\n\n", strike, ball); 
+if(strike == 3) 
+{ 
+printf("사용자가 승리하였습니다."); 
+break; 
+} 
+else if(count == 7) 
+{ 
+printf("컴퓨터가 승리하였습니다."); 
+break; 
+} 
+      count++; 
+  } 
+return 0; 
+}
